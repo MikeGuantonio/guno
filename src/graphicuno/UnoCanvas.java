@@ -11,23 +11,11 @@ import java.util.logging.Logger;
 
 import javax.swing.*;
 
-//~--- classes ----------------------------------------------------------------
-
-/**
- * Class description
- *
- *
- * @version        Enter version here..., 13/04/09
- * @author         Enter your name here...    
- */
 public class UnoCanvas extends JApplet
 {
-    /**
-     * Method description
-     *
-     */
+    
     public void init() {
-        this.setBackground(Color.ORANGE);
+        this.setBackground(Color.BLACK);
         this.setSize(1000, 300);
 
         UnoMain	uc = new UnoMain();
@@ -35,93 +23,38 @@ public class UnoCanvas extends JApplet
         this.getContentPane().add(uc, BorderLayout.CENTER);
     }
 
-    /**
-     * Method description
-     *
-     *
-     * @return
-     */
-    public Insets getInsets() {
+    
+    public Insets getInsets()
+    {
         return new Insets(3, 3, 3, 3);
     }
 
-    /**
-     * Class description
-     *
-     *
-     * @version        Enter version here..., 13/04/09
-     * @author         Enter your name here...    
-     */
+    
     class UnoMain extends JPanel implements ActionListener
     {
-        /** Field description */
         Card	c = new NumberCard(5, Card.cardColor.BLUE);
-
-        /** Field description */
         Deck	deck;
-
-        /** Field description */
-        graphicuno.Robot	r;
-
-        /** Field description */
+        Robot	r;
         String	message;
 
-        /** Field description */
         Font	bigFont;
-
-        /** Field description */
         Font	smallFont;
 
-        // <------------------------ END DELETEABLE CODE ------------------->
-
-        /**
-         * Constructs ...
-         *
-         */
-        public UnoMain() {
+       public UnoMain() 
+       {
             this.setBackground(Color.white);
             smallFont = new Font(Font.SANS_SERIF, Font.BOLD, 12);
             bigFont   = new Font(Font.SANS_SERIF, Font.BOLD, 16);
             doNewGame();
         }
 
-        // <--------------------- DELETABLE CODE ------------------------->
-
-        /**
-         * Method description
-         *
-         *
-         * @return
-         */
-        public ArrayList<Card> makeHand() {
-            ArrayList<Card>	hand = new ArrayList<>();
-
-            hand.add(c);
-            hand.add(new NumberCard(4, Card.cardColor.GREEN));
-            hand.add(new NumberCard(2, Card.cardColor.RED));
-            hand.add(new NumberCard(4, Card.cardColor.YELLOW));
-            hand.add(new SpecialCard(SpecialCard.cardValues.DRTWO, Card.cardColor.BLUE));
-            hand.add(new SpecialCard(SpecialCard.cardValues.REVERSE, Card.cardColor.GREEN));
-            hand.add(new SpecialCard(SpecialCard.cardValues.SKIP, Card.cardColor.YELLOW));
-
-            return hand;
+        
+        public void actionPerformed(ActionEvent evt)
+        {
+           
         }
 
-        /**
-         * Method description
-         *
-         *
-         * @param evt
-         */
-        @Override
-        public void actionPerformed(ActionEvent evt) {
-            System.out.println("This should do something at some time");
-        }
-
-        /**
-         * Method description
-         *
-         */
+        
         void doNewGame()
         {
             deck = new Deck();
@@ -137,7 +70,6 @@ public class UnoCanvas extends JApplet
             repaint();
         }
 
-        //This is the magic componet that paints all to the screen
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
@@ -153,24 +85,14 @@ public class UnoCanvas extends JApplet
             drawCard(g, 10, 30, null);
             
             drawCard(g, 100, 30, deck.TopDiscard());
-
-            boolean play = false;
-            do
+            
+            int k = 0; 
+            for (int i = 0; i < 700; i = i + 100)
             {
-                try {
-                    PrintHand(r, g);
-                    Card c = r.PlayAHand(deck.TopDiscard(), deck);
-                    play = deck.AddDiscard(c);
-                    r.Remove(c);
-                    Thread.sleep(1_000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(UnoCanvas.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                drawCard(g, 10 + i, 160, r.Discard(k));
+                k++;
             }
-            while(!play);
-            
-            
-            
+                       
         }
 
         public void PrintHand(Robot r, Graphics g)
@@ -184,10 +106,12 @@ public class UnoCanvas extends JApplet
           
         }
         
-        public Color chooseColor(Card.cardColor c) {
+        public Color chooseColor(Card.cardColor c)
+        {
             Color	ac = Color.WHITE;
 
-            switch (c) {
+            switch (c)
+            {
             case BLUE :
                 ac = Color.BLUE;
 
@@ -215,7 +139,9 @@ public class UnoCanvas extends JApplet
         public void drawCard(Graphics g, int x, int y, Card c)
         {
             if(c == null)
-                g.setColor(Color.white);
+                g.setColor(Color.MAGENTA);
+            else if(c.color == null )
+                g.setColor(Color.MAGENTA);
             else
                 g.setColor(chooseColor(c.color));
             
