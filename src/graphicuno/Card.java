@@ -1,29 +1,36 @@
 
-/*TODO:
- Find a way to return the face and what not in a way that makes sense so
- * that it can be removed from the deck test and still retain functionality.
- */
 package graphicuno;
 
+import javax.swing.*;
 /**
  *
  * @author mike
  */
 abstract class Card {
+    
+    // <-------------- GUI ELEMENTS ------------>
+    private ImageIcon img;
+    private int x; 
+    private int y;
+    
+    //<------------------ TERMINAL FIELDS --------------------->
     private static final String BLUECOLOR = "\033[1;34m";
     private static final String REDCOLOR = "\033[31m";
     private static final String YELLOWCOLOR = "\033[1;33m";
     private static final String GREENCOLOR = "\033[1;32m";
-
+    
+    //<---------------- GENERAL CARD ------------------------->
     protected cardColor color;
    
     abstract void Print();    
     abstract cardColor GetColor();
+    abstract String getName(); 
     
     @Override
     public abstract String toString();
     public abstract boolean match(Card c); 
     
+   
     public boolean colorMatch(Card c)
     {
         

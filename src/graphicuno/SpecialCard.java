@@ -29,6 +29,11 @@ public class SpecialCard extends Card implements SpecialActions
        sp = newSp; 
        color = newColor; 
    }
+    
+    public String getName()
+    {
+        return sp.toString();
+    }
    
     /**
      *

@@ -30,6 +30,11 @@ public class WildCard extends Card implements WildActions
      */
     cardWild	wild;
 
+    
+    public String getName()
+    {
+        return wild.toString();
+    }
     /**
      *
      * @param w

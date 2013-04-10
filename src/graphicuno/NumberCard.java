@@ -11,7 +11,8 @@ import java.util.logging.Logger;
  *
  * @author mike
  */
-public class NumberCard extends Card {
+public class NumberCard extends Card
+{
     private static final Logger log = Logger.getLogger(NumberCard.class.getName());
     private int face;
     
@@ -28,6 +29,12 @@ public class NumberCard extends Card {
         log.setLevel(Level.SEVERE);
     }
      
+    public String getName()
+    {
+        String foo; 
+        foo = String.format("%s", face);
+        return foo; 
+    }
     /**
      *
      * @return
