@@ -16,6 +16,21 @@ public class NumberCard extends Card
     private static final Logger log = Logger.getLogger(NumberCard.class.getName());
     private int face;
     
+    private enum Face {
+        
+        ZERO,
+        ONE, 
+        TWO, 
+        THREE, 
+        FOUR, 
+        FIVE, 
+        SIX, 
+        SEVEN, 
+        EIGHT, 
+        NINE
+    }
+   
+    
     /**
      *
      * @param newNum
@@ -39,7 +54,7 @@ public class NumberCard extends Card
      *
      * @return
      */
-    public int GetNumber()
+    public int getFace()
     {
         return face; 
     }
@@ -62,6 +77,7 @@ public class NumberCard extends Card
     @Override
     public void Print()
     { 
+        System.out.println(this.toString());
     }
     
     @Override
@@ -90,7 +106,7 @@ public class NumberCard extends Card
         {
            
             NumberCard toMatch = (NumberCard)c;
-            if(this.GetNumber() == toMatch.GetNumber())
+            if(this.getFace() == toMatch.getFace())
             {
             possible = true;
             }

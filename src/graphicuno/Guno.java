@@ -307,7 +307,7 @@ public class Guno extends JFrame
                         
                     case "WildCard": current = iter.Move(); 
                                      WildCard w = (WildCard)inPlayCard;
-                                     if(w.GetWild().equals(WildCard.cardWild.WILDDRFOUR))
+                                     if(w.GetWild().equals(WildCard.Face.WILDDRFOUR))
                                      {
                                          for(int i =0; i < 4; i++)
                                              current.GetCard(deck.DrawNext());

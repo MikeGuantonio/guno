@@ -8,6 +8,7 @@ import javax.swing.*;
  */
 abstract class Card {
     
+    
     // <-------------- GUI ELEMENTS ------------>
     private ImageIcon img;
     private int x; 
@@ -25,10 +26,12 @@ abstract class Card {
     abstract void Print();    
     abstract cardColor GetColor();
     abstract String getName(); 
+    //abstract String getFace(); <-- Need to convert for a number...
     
     @Override
     public abstract String toString();
     public abstract boolean match(Card c); 
+    
     
    
     public boolean colorMatch(Card c)

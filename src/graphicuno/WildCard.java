@@ -25,11 +25,8 @@ public class WildCard extends Card implements WildActions
      */
     private static final Logger	log = Logger.getLogger(WildCard.class.getName());
 
-    /**
-     * Field description
-     */
-    cardWild	wild;
-
+    Face	wild;
+     
     
     public String getName()
     {
@@ -39,7 +36,7 @@ public class WildCard extends Card implements WildActions
      *
      * @param w
      */
-    public WildCard(cardWild w)
+    public WildCard(Face w)
     {
         wild  = w;
         color = null;
@@ -68,7 +65,7 @@ public class WildCard extends Card implements WildActions
      *
      * @return
      */
-    public cardWild GetWild() {
+    public Face GetWild() {
         return wild;
     }
 
@@ -153,7 +150,7 @@ public class WildCard extends Card implements WildActions
      * Enum description
      *
      */
-    enum cardWild { WILD, WILDDRFOUR }
+   
 }
 
 

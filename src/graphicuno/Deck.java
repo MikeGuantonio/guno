@@ -67,7 +67,7 @@ public class Deck {
 
     private void CreateSpecial()
     {
-        for (SpecialCard.cardValues sp : SpecialCard.cardValues.values()) 
+        for (SpecialCard.Face sp : SpecialCard.Face.values()) 
         {
             for (Card.cardColor color : Card.cardColor.values()) 
             {
@@ -78,7 +78,7 @@ public class Deck {
 
     private void CreateWild() 
     {
-        for (WildCard.cardWild wild : WildCard.cardWild.values()) 
+        for (WildCard.Face wild : WildCard.Face.values()) 
         {
             AddToDeck(new WildCard(wild), 4);
         }

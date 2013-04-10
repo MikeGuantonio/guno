@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class SpecialCard extends Card implements SpecialActions
 {
     private static final Logger log = Logger.getLogger(SpecialCard.class.getName()); 
-   cardValues sp; 
+   Face sp; 
 
    
     /**
@@ -23,7 +23,7 @@ public class SpecialCard extends Card implements SpecialActions
      * @param newSp
      * @param newColor
      */
-    public SpecialCard(cardValues newSp, cardColor newColor)
+    public SpecialCard(Face newSp, cardColor newColor)
    {
        log.fine("Special card");
        sp = newSp; 
@@ -57,7 +57,7 @@ public class SpecialCard extends Card implements SpecialActions
      *
      * @return
      */
-    public cardValues GetSpecial()
+    public Face GetSpecial()
     {
         return sp; 
     }
@@ -216,11 +216,12 @@ public class SpecialCard extends Card implements SpecialActions
             {
                possible = true; 
             }
+          
         }
         return possible; 
     }
     
-   enum cardValues {REVERSE,SKIP,DRTWO}
+   
     
     
 }

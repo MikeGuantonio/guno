@@ -10,21 +10,10 @@ import java.util.Scanner;
  *
  * @author mike
  */
-public interface WildActions {
-    
-     /**
-     *
-     * @param scan
-     * @return
-     */
+public interface WildActions 
+{
+    enum Face { WILD, WILDDRFOUR }
     Card.cardColor Wild(Scanner scan); 
-     /**
-     *
-     * @param nextPlayer
-     * @param copyDeck
-     * @param scan
-     * @return
-     */
     Card.cardColor DrawFour(Player nextPlayer, Deck copyDeck, Scanner scan); 
     
 }
