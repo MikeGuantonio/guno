@@ -11,24 +11,12 @@ import java.util.logging.Logger;
  *
  * @author mike
  */
-public class NumberCard extends Card
+public class NumberCard extends Card implements NumberActions
 {
     private static final Logger log = Logger.getLogger(NumberCard.class.getName());
     private int face;
     
-    private enum Face {
-        
-        ZERO,
-        ONE, 
-        TWO, 
-        THREE, 
-        FOUR, 
-        FIVE, 
-        SIX, 
-        SEVEN, 
-        EIGHT, 
-        NINE
-    }
+    
    
     
     /**
@@ -50,11 +38,8 @@ public class NumberCard extends Card
         foo = String.format("%s", face);
         return foo; 
     }
-    /**
-     *
-     * @return
-     */
-    public int getFace()
+    
+    public int getNumFace()
     {
         return face; 
     }
@@ -106,7 +91,7 @@ public class NumberCard extends Card
         {
            
             NumberCard toMatch = (NumberCard)c;
-            if(this.getFace() == toMatch.getFace())
+            if(this.getNumFace() == toMatch.getNumFace())
             {
             possible = true;
             }

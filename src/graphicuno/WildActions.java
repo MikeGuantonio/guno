@@ -12,7 +12,11 @@ import java.util.Scanner;
  */
 public interface WildActions 
 {
-    enum Face { WILD, WILDDRFOUR }
+    enum Face implements CardFace
+    {
+        WILD, WILDDRFOUR
+    }
+    
     Card.cardColor Wild(Scanner scan); 
     Card.cardColor DrawFour(Player nextPlayer, Deck copyDeck, Scanner scan); 
     

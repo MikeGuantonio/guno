@@ -6,15 +6,18 @@ import javax.swing.*;
  *
  * @author mike
  */
-abstract class Card {
+abstract class Card <typeFace extends CardFace> 
+{
+    protected typeFace face; 
     
+    public typeFace getFace()
+    {
+        return face; 
+    }
     
-    // <-------------- GUI ELEMENTS ------------>
-    private ImageIcon img;
-    private int x; 
-    private int y;
     
     //<------------------ TERMINAL FIELDS --------------------->
+    //< ------------------MOVE TO T_Card ---------------------->
     private static final String BLUECOLOR = "\033[1;34m";
     private static final String REDCOLOR = "\033[31m";
     private static final String YELLOWCOLOR = "\033[1;33m";
@@ -26,7 +29,7 @@ abstract class Card {
     abstract void Print();    
     abstract cardColor GetColor();
     abstract String getName(); 
-    //abstract String getFace(); <-- Need to convert for a number...
+    //abstract String getNumFace(); <-- Need to convert for a number...
     
     @Override
     public abstract String toString();
