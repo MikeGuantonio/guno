@@ -1,0 +1,8 @@
+List of things to learn in order to make Uno graphical
+
+1. The super.paint method
+2. The paint component method
+3. Create a simple 0 -9 template for cards as well for speical and wild. Total -> 15 cards
+4. Mouse Events
+5. Repaint methods. 
+6. Dragging a card with the mouse ontop of the deck
